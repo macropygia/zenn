@@ -3,7 +3,7 @@ title: "Bun専用(?)TypeScriptそのままnpmパッケージの作成に関す�
 emoji: "🕊"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["bun", "typescript", "npm"]
-published: false
+published: true
 ---
 
 Bunのドキュメントにはこのように[書いてある](https://bun.sh/docs/runtime/modules#importing-packages)。（2024Q2時点）
