@@ -1,0 +1,12 @@
+{
+  "name": "@macropygia/zenn",
+  "private": true,
+  "scripts": {
+    "preview": "zenn preview",
+    "article": "zenn new:article",
+    "book": "zenn new:book"
+  },
+  "dependencies": {
+    "zenn-cli": "latest"
+  }
+}
