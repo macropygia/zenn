@@ -3,7 +3,7 @@ title: "Release Drafterが作成予定のtagを事前に自動でpackage.jsonの
 emoji: "🕊"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["npm", "github", "githubactions"]
-published: false
+published: true
 ---
 
 ## 概要
