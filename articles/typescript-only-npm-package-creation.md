@@ -166,7 +166,7 @@ jobs:
 
 ## サンプル
 
-実際にPublishしたTypeScriptオンリーのパッケージがこちら。
+実際にPublishしたTypeScriptそのままnpmパッケージがこちら。
 
 https://www.npmjs.com/package/elysia-openid-client
 
