@@ -2,8 +2,8 @@
 title: "ElysiaJS用OpenID Connectクライアントプラグインを作った"
 emoji: "🕊"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["bun", "elysiajs", "oidc", "openid"]
-published: false
+topics: ["bun", "elysiajs", "oidc", "openid", "npm"]
+published: true
 ---
 
 https://www.npmjs.com/package/elysia-openid-client
@@ -281,7 +281,7 @@ new Elysia()
 
 - せっかくなのでテストには[Bunのビルトイン機能](https://bun.sh/docs/cli/test)を使用
     - 概ねJest・Vitestと同様
-    - Coverageは取れるが[現時点では出力できない](https://github.com/oven-sh/bun/issues/4015)のでCodeCov等との連携ができない
+    - Coverageは取れるが[現時点では出力できない](https://github.com/oven-sh/bun/issues/4015)のでCodeCov等との連携はできない
 - Linter/Formatterには[Biome](https://biomejs.dev/)を使用
     - まだ荒削りな部分もあるがJS/TSのみのプロジェクトなら大丈夫そう
         - 短絡評価させたい演算子をまとめてしまったり、import文が複雑だとformatterが整形時に壊したりする
@@ -297,6 +297,6 @@ new Elysia()
 - GitHubリポジトリのcontribute導線は[Renovate](https://github.com/renovatebot/renovate)などで行われているIssuesを閉じてDiscussionsに誘導する方式にした
     - 果たして使われることはあるのだろうか
 - Dependabotは[Bunに非対応](https://github.com/dependabot/dependabot-core/issues/6528)だった
-    - 今回はGitHubの機能に依存する予定なのでRenovateは使わず一旦npm-check-updatesを使ったマニュアル管理とする
+    - 今回はGitHubの機能に全振りする予定なのでRenovateは使わず一旦npm-check-updatesを使ったマニュアル管理とする
 - `npm publish` の `--provenance` フラグを導入
     - GitHub Actionsでデプロイしていればフラグと `id-token: write` の追加だけで対応できる
