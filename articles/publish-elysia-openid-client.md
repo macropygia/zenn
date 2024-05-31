@@ -39,9 +39,9 @@ https://www.npmjs.com/package/elysia-openid-client
 
 その他細かいことはドキュメンテーション（日本語あり）を頑張ったのでそちらを参照のこと。
 
-https://macropygia.github.io/elysia-openid-client/index.ja.html
+https://macropygia.github.io/elysia-openid-client/ja/
 
-:::details ランタイム/ライブラリの執筆時のバージョン
+:::details 本稿作成時のランタイム/ライブラリのバージョン
 
 |App/Package|Version|
 |---|---|
@@ -275,11 +275,11 @@ new Elysia()
     - OP選択画面で行っている `/auth/login` と `/another/login` の選択をセッション情報を元に自動で行うということ
     - `Record<IssuerUrl, PathPrefix>` を用意しておくのが妥当か（初期化にも使える）
 
-他の設定例は気が向いたら[Examples](https://github.com/macropygia/elysia-openid-client/tree/main/__examples__)に追加予定。
+他の設定例は気が向いたら[Examples](https://macropygia.github.io/elysia-openid-client/ja/examples/multiple-issuer/)に追加予定。
 
 ## 余談
 
-- せっかくなのでテストには[Bunのビルトイン機能](https://bun.sh/docs/cli/test)を使用
+- テストには[Bunのビルトイン機能](https://bun.sh/docs/cli/test)を使用
     - 概ねJest・Vitestと同様
     - Coverageは取れるが[現時点では出力できない](https://github.com/oven-sh/bun/issues/4015)のでCodeCov等との連携はできない
 - Linter/Formatterには[Biome](https://biomejs.dev/)を使用
@@ -288,15 +288,19 @@ new Elysia()
     - HTML/CSS/YAML/Markdown辺りは[まだ未対応](https://biomejs.dev/internals/language-support/)
 - 今更ながら[commitlint](https://github.com/conventional-changelog/commitlint)を導入
     - ルールはひとまず `@commitlint/config-conventional`
-- リリース管理には[Release Drafter](https://github.com/release-drafter/release-drafter)を使用
+- ~~リリース管理には[Release Drafter](https://github.com/release-drafter/release-drafter)を使用~~
     - `package.json` の `veresion` とReleaseで発行するtagを同期させるために四苦八苦するなどした → [関連記事](https://zenn.dev/macropygia/articles/sync-release-drafter-tag-to-package-json)
-- [TypeDoc](https://typedoc.org/)の出力をGitHub ActionsでGitHub Pagesにデプロイするワークフローを導入
-    - 日本語READMEを追加するためにimportして使おうとしたら[Bunが非対応だった](https://github.com/oven-sh/bun/issues/2445)
-    - 幸いCLIでならビルドできるのでBun.spawnでサブプロセスからビルドして力技で合体
-    - これがなかったらREADME作りで力尽きていた
+    - 初期開発の段階では細かい修正で一々PRを経由するのが面倒なため[Changesets](https://github.com/changesets/changesets)に移行した
+- ~~[TypeDoc](https://typedoc.org/)の出力をGitHub ActionsでGitHub Pagesにデプロイするワークフローを導入~~
+    - ~~日本語READMEを追加するためにimportして使おうとしたら[Bunが非対応だった](https://github.com/oven-sh/bun/issues/2445)~~
+    - ~~幸いCLIでならビルドできるのでBun.spawnでサブプロセスからビルドして力技で合体~~
+    - ~~これがなかったらREADME作りで力尽きていた~~
+    - 限界を感じたためドキュメントは[Starlight](https://starlight.astro.build/)に移行した
+        - TypeDocはプラグインでStarlight内に組み込める
 - GitHubリポジトリのcontribute導線は[Renovate](https://github.com/renovatebot/renovate)などで行われているIssuesを閉じてDiscussionsに誘導する方式にした
     - 果たして使われることはあるのだろうか
 - Dependabotは[Bunに非対応](https://github.com/dependabot/dependabot-core/issues/6528)だった
     - 今回はGitHubの機能に全振りする予定なのでRenovateは使わず一旦npm-check-updatesを使ったマニュアル管理とする
 - `npm publish` の `--provenance` フラグを導入
     - GitHub Actionsでデプロイしていればフラグと `id-token: write` の追加だけで対応できる
+    - `package.json` に `"publishConfig": { "provenance": true }` を追記してもよい
